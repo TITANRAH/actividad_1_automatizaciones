@@ -16,40 +16,42 @@ jobs:
   test:
     name: Test & Coverage
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout PR HEAD
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install deps
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
       - name: Run tests (Jest)
-        run: npm test -- --runInBand --coverage
+        run: npm run test:ci
 
-      - name: Upload coverage HTML
+      - name: Upload coverage (HTML)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage
 
-      - name: Upload JUnit
+      - name: Upload JUnit report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: junit-report
           path: reports/junit/junit.xml
+          if-no-files-found: ignore
 
       - name: Summary
         if: always()
         run: |
           echo "## Resultados de Tests" >> $GITHUB_STEP_SUMMARY
-          echo "- Cobertura HTML y JUnit adjuntos como artifacts." >> $GITHUB_STEP_SUMMARY
+          echo "- Cobertura HTML y (si existe) JUnit adjuntos como artifacts." >> $GITHUB_STEP_SUMMARY
