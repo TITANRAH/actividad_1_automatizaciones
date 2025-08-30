@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="0.198">
+  <testsuite name="Maths" errors="0" failures="0" skipped="0" timestamp="2025-08-30T00:03:14" time="0.073" tests="3">
+    <testcase classname="Maths Deberia sumar 2 + 3 y dar 5" name="Maths Deberia sumar 2 + 3 y dar 5" time="0.001">
+    </testcase>
+    <testcase classname="Maths Deberia restar 5 - 3 y dar 2" name="Maths Deberia restar 5 - 3 y dar 2" time="0">
+    </testcase>
+    <testcase classname="Maths Deberia multiplicar 2 * 3 y dar 6" name="Maths Deberia multiplicar 2 * 3 y dar 6" time="0">
+    </testcase>
+  </testsuite>
+</testsuites>
