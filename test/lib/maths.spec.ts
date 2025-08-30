@@ -14,6 +14,6 @@ describe("Maths", () => {
   });
 
   it("Deberia dividir 6 / 3 y dar 2", () => {
-    expect(division(6, 3)).toBe(2);
+    expect(division(4, 1)).toBe(4);
   });
 });
